@@ -1,7 +1,29 @@
-// setTimeout(fn, ms) → schedule once
-setTimeout(() => console.log('timeout'), 0)
-// setInterval(fn, ms) → schedule repeated; clearInterval(id) stops
-const id = setInterval(() => { console.log('interval'); clearInterval(id) }, 0)
-// Promise.resolve(value) / Promise.reject(error) → settled promises
-Promise.resolve(5).then(v => console.log(v))
-Promise.reject(new Error('x')).catch(e => console.log('caught'))
+// setTimeout → once
+setTimeout(() => console.log("timeout fired"), 0);          // timeout fired
+
+// setInterval → repeat then stop
+const intervalId = setInterval(() => {
+  console.log("interval fired");                            // interval fired
+  clearInterval(intervalId);
+}, 0);
+
+// resolved promise
+Promise.resolve(5)
+  .then(v => console.log("resolved:", v));                  // resolved: 5
+
+// rejected promise
+Promise.reject("x")
+  .catch(e => console.log("caught:", e));                   // caught: x
+
+// async/await
+async function runAsync() {
+  const v = await Promise.resolve("awaited");
+  console.log(v);                                           // awaited
+
+  try {
+    await Promise.reject("err");
+  } catch (e) {
+    console.log("caught await:", e);                        // caught await: err
+  }
+}
+runAsync();

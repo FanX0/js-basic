@@ -1,26 +1,27 @@
-// new Date(input?) → create date instance
-const d = new Date('2020-01-02T03:04:05Z')
-// toISOString() → ISO 8601 string in UTC
-console.log(d.toISOString())
-// getUTCFullYear() → year in UTC
-console.log(d.getUTCFullYear())
-// getMonth() → month index (0–11)
-console.log(d.getMonth())
-// getDate() → day of month (1–31)
-console.log(d.getDate())
-// getTime() → milliseconds since epoch
-console.log(d.getTime())
+// Date instance
+const d = new Date("2020-01-02T03:04:05Z");
+console.log(d.toISOString());                              // 2020-01-02T03:04:05.000Z
+console.log(d.getUTCFullYear());                           // 2020
+console.log(d.getMonth());                                 // 0   (January)
+console.log(d.getDate());                                  // 2
+console.log(d.getTime());                                  // 1577934245000
 
-// Intl.DateTimeFormat(locale, options) → format date/time
-const df = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' })
-console.log(df.format(d))
+// Intl.DateTimeFormat
+const df = new Intl.DateTimeFormat("en-US", { 
+  dateStyle: "medium", 
+  timeStyle: "short", 
+  timeZone: "UTC" 
+});
+console.log(df.format(d));                                 // Jan 2, 2020, 3:04 AM
 
-// Intl.NumberFormat(locale, { style: 'currency', currency }) → format numbers
-const nf = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' })
-console.log(nf.format(12500))
+// Intl.NumberFormat (currency)
+const nf = new Intl.NumberFormat("id-ID", { 
+  style: "currency", 
+  currency: "IDR" 
+});
+console.log(nf.format(12500));                             // Rp 12.500,00
 
-// Intl.RelativeTimeFormat(locale, options) → human-friendly relative time
-const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
-// format(value, unit) → e.g., -1 day → "yesterday"
-console.log(rtf.format(-1, 'day'))
-console.log(rtf.format(2, 'hour'))
+// Intl.RelativeTimeFormat
+const rtf = new Intl.RelativeTimeFormat("en", { numeric: "auto" });
+console.log(rtf.format(-1, "day"));                        // yesterday
+console.log(rtf.format(2, "hour"));                        // in 2 hours
