@@ -4,6 +4,7 @@ if (typeof localStorage !== 'undefined') {
   console.log(localStorage.getItem('name'))
   localStorage.removeItem('name')
   console.log(localStorage.getItem('name'))
+  localStorage.setItem('name', 'Asep')
 } else {
   console.log('localStorage not available')
 }

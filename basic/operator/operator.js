@@ -7,6 +7,7 @@ console.log(7 % 3) // 1
 console.log(2 ** 3) // 8
 
 // Comparison operators → === !== > < >= <=
+console.log(2 == "2") //true
 console.log(1 === 1) // true
 console.log(1 !== 2) // true
 console.log(3 > 2) // true

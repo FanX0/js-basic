@@ -29,8 +29,8 @@ do {
 } while (m < 2)
 
 // break → exit loop; continue → skip iteration
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 10; i++) {
   if (i === 1) continue
-  if (i === 2) break
-  console.log('ctrl', i) // ctrl 0
+  if (i === 8) break
+  console.log('ctrl', i) // ctrl 0 ctrl 0 ctrl 2 ctrl 3 ctrl 4 ctrl 5 ctrl 6 ctrl 7
 }
